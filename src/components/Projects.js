@@ -5,6 +5,7 @@ import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
+import projImg6 from "../assets/img/project-img6.webp";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -42,6 +43,12 @@ export const Projects = () => {
     imgUrl: projImg5,
     docUrl: "/db.pdf"
   },
+  {
+    title: "Discord Bot",
+    description: "A multi-purpose Discord Bot coded using Discord.js",
+    imgUrl: projImg6,
+    docUrl: "https://crystal-discord.github.io/"
+  },
 ];
 
   return (
@@ -59,21 +66,15 @@ export const Projects = () => {
                     <Tab.Pane eventKey="first">
                       <Row>
                         {
-                        // Split projects into rows of 3
-                        Array.from({ length: Math.ceil(projects.length / 3) }).map((_, rowIndex) => {
-                          const rowProjects = projects.slice(rowIndex * 3, rowIndex * 3 + 3);
-                          return (
-                            <Row
-                              key={rowIndex}
-                              className={`justify-content-${rowProjects.length < 3 ? 'center' : 'start'} mb-4`}
-                            >
-                              {rowProjects.map((project, index) => (
-                                <ProjectCard key={index} {...project} />
-                              ))}
-                            </Row>
-                          );
-                        })
-                      }
+                          projects.map((project, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...project}
+                                />
+                            )
+                          })
+                        }
                       </Row>
                     </Tab.Pane>
                   </Tab.Content>
